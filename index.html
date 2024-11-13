@@ -8,7 +8,7 @@
 	</head>
 	<body>
 		<script type="application/processing">
-ArrayList<Ball> balls;
+			ArrayList<Ball> balls;
 
 float x,y,Vx,Vy,Px,Py,x2,y2,Vx2,Vy2,Px2;
 
@@ -28,7 +28,6 @@ int sizey = 700;
 boolean inicio = true;
 
 void setup() {
-  //size(700,700);
   fullScreen();
   sizex = width;
   sizey = height;
@@ -76,7 +75,7 @@ void draw() {
     
     inicio = false;
   }
-  background(0);
+  if(estado != 5)background(0);
   
   if(estado == 0) {
     if(x > Px) {
@@ -101,9 +100,11 @@ void draw() {
     }
     
     fill(60,60,60);
+    stroke(60,60,60);
     ellipse(Px,Py,10,10);
     
     fill(255,255,255);
+    stroke(255,255,255);
     ellipse(x,y,13,13);
   }
   
@@ -182,19 +183,23 @@ void draw() {
     }
     
     fill(255,0,0);
+    stroke(255,0,0);
     ellipse(x2,y2,13,13);
     
     fill(0,255,0);
+    stroke(0,255,0);
     ellipse(x,y,13,13);
   }
   
   if(estado == 3) {
     fill(255,255,0);
+    stroke(255,255,0);
     ellipse(sizex/2,sizey/2,19,19);
     
     a = a + 0.003;
     translate(sizex/2,sizey/2);
     fill(0,50,205);
+    stroke(0,50,205);
     x = cos(a) * 100;
     y = sin(a) * 100;
     ellipse(x,y,15,15);
@@ -202,6 +207,7 @@ void draw() {
     b = b + 0.015;
     translate(x,y);
     fill(255,255,255);
+    stroke(255,255,255);
     x = cos(b) * 40;
     y = sin(b) * 40;
     ellipse(x,y,9,9);
